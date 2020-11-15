@@ -1,14 +1,10 @@
 <template>
-  <div class="columns medium-3" v-for="result in Articles" :key="result.id">
-  <div class="card">
-    <div class="card-divider">
-      {{ result.title }}
-    </div>
-    <div class="card-section">
-      <p>{{ result.publishedAt }}.</p>
-    </div>
+ <div class="card"  v-for="result in Articles" :key="result.id">
+     <h1 id="header"> {{ result.title }}</h1>
+     <p class="description">{{ result.description }}</p>
+     <p id="publisher"> {{ result.source.name }} : {{ result.publishedAt }}</p>
   </div>
-</div>
+  <br/>
 </template>
 
 <script>
@@ -35,18 +31,26 @@ methods: {
 
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 50%;
+  margin: auto;
+  border-radius: 30px;
+  font-family: arial;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.description {
+  color: grey;
+  font-size: 22px;
+  padding: 1%;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+#header{
+  padding: 2%;
 }
-a {
-  color: #42b983;
+
+#publisher{
+  text-align: end;
+  padding: 0% 3% 1% 0%;
 }
 </style>
