@@ -1,15 +1,15 @@
 <template>
  <div class="card"  v-for="result in Articles" :key="result.id">
      <h1 id="header"> {{ result.title }}</h1>
+     <img :src="result.urlToImage"/>
      <p class="description">{{ result.description }}</p>
      <p id="publisher"> {{ result.source.name }} : {{ result.publishedAt }}</p>
   </div>
-  <br/>
 </template>
 
 <script>
+const api = "http://newsapi.org/v2/top-headlines?country=us&apiKey=";
 export default {
-  name: 'home',
   data() {
     return {
       Articles: [],
@@ -17,10 +17,10 @@ export default {
   },
 methods: {
     fetchPosts() {
-      fetch("http://newsapi.org/v2/top-headlines?country=us&apiKey=")
+      fetch(api)
         .then(response => response.json())
         .then(data => (this.Articles = data.articles));
-        console.log(this.Articles.title)
+        console.log(this.Articles)
     }
   },
  mounted() {
@@ -43,6 +43,10 @@ methods: {
   color: grey;
   font-size: 22px;
   padding: 1%;
+}
+
+img{
+ width: 100%; 
 }
 
 #header{
