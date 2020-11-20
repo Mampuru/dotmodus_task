@@ -1,5 +1,8 @@
 <template>
   <Nav />
+  <div id='header'>
+    <h1>Express News</h1>
+  </div>
   <Home />
 </template>
 
@@ -22,6 +25,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #000;
+}
+#header{
+  font-family: 'Times New Roman', Times, serif;
 }
 </style>
